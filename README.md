@@ -1,6 +1,3 @@
-# ml-wine-club-prediction
-Machine learning pipeline to predict whether customers will subscribe to a wine club based on their first order
-
 # Wine Club Subscription Prediction Pipeline
 
 This repository contains a machine learning pipeline to predict whether customers will subscribe to a wine club based on their first order.
@@ -11,8 +8,8 @@ This repository contains a machine learning pipeline to predict whether customer
 python3 main.py --tuning_train_size 0.01 --models random_forest svm xgboost --param_grids "{'random_forest': {'n_estimators': [10, 50, 100], 'max_depth': [5, 10, 15]}}" "{'svm': {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}}" "{'xgboost': {'n_estimators': [50, 100, 200], 'max_depth': [3, 5, 7]}}"
 ```
 
-| Parameter            | Description                                                                                                                                                 |
-|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Parameter                 | Description                                                                                                                                                 |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `--tuning_train_size`| The size of the training set to be used for hyperparameter tuning. In this example, it's set to 0.01, indicating 1% of the training data.                   |
 | `--models`           | List of machine learning models to be trained and evaluated. In this example, it includes Random Forest, Support Vector Machine (SVM), and XGBoost.          |
 | `--param_grids`      | Hyperparameter grids for each model specified in the `--models` parameter. The hyperparameters specified here will be tuned using GridSearchCV. For example: |
@@ -58,6 +55,7 @@ Users who found Firstleaf through Search and Customer referral tends to have a h
 | `RANDOM_STATE`| Seed for random number generation              | 0                              |
 
 ## Project Structure
+```bash
 .
 ├── config
 │   ├── config.env              # Configuration file with environment variables
@@ -82,3 +80,4 @@ Users who found Firstleaf through Search and Customer referral tends to have a h
 ├── utils
 │   └── create_experiment_name.py    # Automatically create name of experiments based on datetime
 └── main.py                     # Main script
+```
