@@ -1,5 +1,5 @@
 import pandas as pd
-import ast
+import os
 import logging
 from tqdm import tqdm
 from sklearn.model_selection import GridSearchCV
@@ -7,14 +7,14 @@ from sklearn.base import BaseEstimator
 from src.model import Model
 from sklearn.model_selection import train_test_split
 from typing import Dict, Any, List
+from config.config import Settings
 
 class Tuner:
-    def __init__(self, X_train: pd.DataFrame, y_train: pd.DataFrame, models: List[str], param_grids: Dict[str, Dict[str, list]], tuning_train_size, random_state: int = 0):
+    def __init__(self, X_train: pd.DataFrame, y_train: pd.DataFrame, models: List[str], param_grids: Dict[str, Dict[str, list]], tuning_train_size):
         self.models = models
         self.models = self.initialize_models()
         self.param_grids = param_grids
         self.tuning_train_size = tuning_train_size
-        self.random_state = random_state
         self.X_train = X_train
         self.y_train = y_train
         self.prepare_data()
@@ -23,7 +23,7 @@ class Tuner:
 
         total_train_size = len(self.X_train)
         if self.tuning_train_size < 1.0 and self.tuning_train_size > 0:
-            self.X_train, _, self.y_train, _ = train_test_split(self.X_train, self.y_train, train_size=self.tuning_train_size, random_state=self.random_state, shuffle=False)
+            self.X_train, _, self.y_train, _ = train_test_split(self.X_train, self.y_train, train_size=self.tuning_train_size, random_state=Settings.get('RANDOM_STATE'), shuffle=False)
 
         logging.info(f"Using {len(self.X_train)} / {total_train_size} samples for hyperparameter tuning")
 

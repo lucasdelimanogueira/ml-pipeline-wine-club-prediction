@@ -5,11 +5,11 @@ from src.load_dataset import LoadDataset
 from src.tuning import Tuner
 from src.training import Trainer
 from src.evaluating import Evaluator
-import pandas as pd
 from utils.create_experiment_name import create_experiment_name
 import mlflow
 import mlflow.sklearn
 import os
+from config.config import Settings
 
 def main():
     parser = argparse.ArgumentParser(description='Train and find the best model with hyperparameters')
@@ -33,10 +33,10 @@ def main():
         logging.info("%s: %s", arg, getattr(args, arg))
     
     with mlflow.start_run():
-        X_train, X_test, y_train, y_test = LoadDataset(dataset_path="data/available_intro_user_data.csv").prepare()
+        X_train, X_test, y_train, y_test = LoadDataset(dataset_path=Settings.get('DATASET_PATH')).prepare()
         param_grids = {model: ast.literal_eval(grid) for model, grid in zip(args.models, args.param_grids)}
         best_model_type, best_params = Tuner(X_train, y_train, models=args.models, param_grids=param_grids, tuning_train_size=args.tuning_train_size).run()        
-        trained_model = Trainer(X_train[:1000], y_train[:1000], model_type=best_model_type, params=best_params).train()
+        trained_model = Trainer(X_train, y_train, model_type=best_model_type, params=best_params).train()
         results = Evaluator(X_test=X_test, y_test=y_test, model=trained_model, model_type=best_model_type).evaluate()
     
         mlflow.log_param("hyperparameters", best_params)

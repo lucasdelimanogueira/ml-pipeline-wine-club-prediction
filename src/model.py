@@ -58,33 +58,3 @@ class Model:
         """
         logging.info(f"Loading model from {filepath}")
         self.model = joblib.load(filepath)
-
-    def predict(self, X: pd.DataFrame) -> Union[pd.Series, Tuple[pd.Series, pd.Series]]:
-        """
-        Make predictions using the trained model.
-
-        Parameters:
-        - X (pd.DataFrame): Feature matrix.
-
-        Returns:
-        - Predictions (pd.Series): Predicted values.
-        """
-        if isinstance(self.model, BaseEstimator):
-            return self.model.predict(X)
-        elif hasattr(self.model, 'predict_proba'):
-            return self.model.predict_proba(X)[:, 1]
-        else:
-            raise NotImplementedError("Prediction method not implemented for this model.")
-
-    def evaluate(self, X_test: pd.DataFrame, y_test: pd.Series) -> float:
-        """
-        Evaluate the model on test data.
-
-        Parameters:
-        - X_test (pd.DataFrame): Test feature matrix.
-        - y_test (pd.Series): Test target variable.
-
-        Returns:
-        - Evaluation score (float): Model evaluation score.
-        """
-        return self.model.score(X_test, y_test)
