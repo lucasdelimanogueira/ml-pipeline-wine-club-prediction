@@ -10,12 +10,12 @@ python3 main.py --tuning_train_size 0.01 --models random_forest svm xgboost --pa
 
 | Parameter                 | Description                                                                                                                                                 |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--tuning_train_size`     | The size of the training set to be used for hyperparameter tuning. In this example, it's set to 0.01, indicating 1% of the training data.                   |
-| `--models`                | List of machine learning models to be trained and evaluated. In this example, it includes Random Forest, Support Vector Machine (SVM), and XGBoost.          |
-| `--param_grids`           | Hyperparameter grids for each model specified in the `--models` parameter. The hyperparameters specified here will be tuned using GridSearchCV. For example: |
-|                           | - For Random Forest: `{'n_estimators': [10, 50, 100], 'max_depth': [5, 10, 15]}`                                                                           |
-|                           | - For SVM: `{'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}`                                                                                              |
-|                           | - For XGBoost: `{'n_estimators': [50, 100, 200], 'max_depth': [3, 5, 7]}`                                                                                  |
+| \`--tuning_train_size\`     | The size of the training set to be used for hyperparameter tuning. In this example, it's set to 0.01, indicating 1% of the training data.                   |
+| \`--models\`                | List of machine learning models to be trained and evaluated. In this example, it includes Random Forest, Support Vector Machine (SVM), and XGBoost.          |
+| \`--param_grids\`           | Hyperparameter grids for each model specified in the \`--models\` parameter. The hyperparameters specified here will be tuned using GridSearchCV. For example: |
+|                           | - For Random Forest: \`{'n_estimators': [10, 50, 100], 'max_depth': [5, 10, 15]}\`                                                                           |
+|                           | - For SVM: \`{'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}\`                                                                                              |
+|                           | - For XGBoost: \`{'n_estimators': [50, 100, 200], 'max_depth': [3, 5, 7]}\`                                                                                  |
 
 
 ## Exploratory Data Analysis
