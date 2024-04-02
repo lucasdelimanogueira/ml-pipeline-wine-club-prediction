@@ -1,0 +1,15 @@
+artifact_uri: file:///home/lln/Documentos/firstleaf/psel/firstleaf-club-prediction/mlruns/530197217975473301/5a550a0802bb4b9aa57ad7eb3a138370/artifacts
+end_time: 1712071838830
+entry_point_name: ''
+experiment_id: '530197217975473301'
+lifecycle_stage: active
+run_id: 5a550a0802bb4b9aa57ad7eb3a138370
+run_name: ambitious-boar-772
+run_uuid: 5a550a0802bb4b9aa57ad7eb3a138370
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712071819784
+status: 3
+tags: []
+user_id: lln

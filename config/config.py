@@ -8,7 +8,8 @@ class Settings:
         'DATASET_PATH': os.getenv('DATASET_PATH'),
         'RANDOM_STATE': int(os.getenv('RANDOM_STATE')),
         'CROSS_VALIDATION_SIZE': int(os.getenv('CROSS_VALIDATION_SIZE')),
-        'TUNING_SCORE_METRIC': os.getenv('TUNING_SCORE_METRIC')
+        'TUNING_SCORE_METRIC': os.getenv('TUNING_SCORE_METRIC'),
+        'RESAMPLING_STRATEGY': os.getenv('RESAMPLING_STRATEGY')
     }
 
     @classmethod

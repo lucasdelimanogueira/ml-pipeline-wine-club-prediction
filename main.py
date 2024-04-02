@@ -10,6 +10,7 @@ import mlflow
 import mlflow.sklearn
 import os
 from config.config import Settings
+import shutil
 
 def main():
     parser = argparse.ArgumentParser(description='Train and find the best model with hyperparameters')
@@ -26,21 +27,25 @@ def main():
     logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s - %(levelname)s - %(message)s",
                     datefmt="%m/%d/%Y - %H:%M:%S",
-                    handlers=[logging.FileHandler(log_file_path)])
+                    handlers=[logging.FileHandler(log_file_path), logging.StreamHandler()])
     
     logging.info("# Parsed arguments:")
     for arg in vars(args):
         logging.info("%s: %s", arg, getattr(args, arg))
     
     with mlflow.start_run():
-        X_train, X_test, y_train, y_test = LoadDataset(dataset_path=Settings.get('DATASET_PATH')).prepare()
+        dataset_loader = LoadDataset(dataset_path=Settings.get('DATASET_PATH'))
+        X_train, X_test, y_train, y_test = dataset_loader.prepare()
         param_grids = {model: ast.literal_eval(grid) for model, grid in zip(args.models, args.param_grids)}
         best_model_type, best_params = Tuner(X_train, y_train, models=args.models, param_grids=param_grids, tuning_train_size=args.tuning_train_size).run()        
         trained_model = Trainer(X_train, y_train, model_type=best_model_type, params=best_params).train()
-        results = Evaluator(X_test=X_test, y_test=y_test, model=trained_model, model_type=best_model_type).evaluate()
-    
+        results = Evaluator(X_test=X_test, y_test=y_test, model=trained_model).evaluate()
+
+        mlflow.log_param("environment_variables", {key: os.getenv(key) for key in os.environ})
+        mlflow.log_param("normalization_parameters", {"mean": dataset_loader.preprocessor.scaler.mean_, "std": dataset_loader.preprocessor.scaler.scale_})
         mlflow.log_param("hyperparameters", best_params)
         mlflow.sklearn.log_model(trained_model, best_model_type)
+        shutil.copy(log_file_path, os.path.join('models', 'last_model_logs.txt'))
         
         for metric_name, metric_value in results.items():
             mlflow.log_metric(metric_name, metric_value)

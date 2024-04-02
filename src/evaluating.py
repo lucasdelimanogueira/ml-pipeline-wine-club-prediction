@@ -9,11 +9,10 @@ import json
 import os
 
 class Evaluator:
-    def __init__(self, X_test: pd.DataFrame, y_test: pd.DataFrame, model: BaseEstimator, model_type: str):
+    def __init__(self, X_test: pd.DataFrame, y_test: pd.DataFrame, model: BaseEstimator):
         self.X_test = X_test
         self.y_test = y_test
         self.model = model
-        self.model_type = model_type
 
     def evaluate(self):
         """
@@ -24,7 +23,6 @@ class Evaluator:
         end_time = time.time()
 
         evaluation_metrics = {
-            'model_type': self.model_type,
             'accuracy': accuracy_score(self.y_test, y_pred),
             'precision': precision_score(self.y_test, y_pred),
             'recall': recall_score(self.y_test, y_pred),

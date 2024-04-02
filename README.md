@@ -16,6 +16,15 @@ python3 main.py --tuning_train_size 0.01 --models random_forest svm xgboost --pa
 |                           | - For Random Forest: `{'n_estimators': [10, 50, 100], 'max_depth': [5, 10, 15]}`                                                                           |
 |                           | - For SVM: `{'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}`                                                                                              |
 |                           | - For XGBoost: `{'n_estimators': [50, 100, 200], 'max_depth': [3, 5, 7]}`                                                                                  |
+## Pipeline operations
+| Preprocessing      | Tuning      | Training      | Evaluation  |
+|---------------|----------------------------------|-------------|
+| New features creation | GridSearch with cross-validation (find best model-hyperparameters) | Use all training set to train the best model | Evaluate the trained model on test set |
+| Train-test splitting | | | |
+| Label encoding | Size of cross validation (K-fold) | | |
+| Normalization |  |   |   |
+| Resampling | | | |
+| Missing values treatment | | | |
 
 ## Exploratory Data Analysis
 
@@ -55,6 +64,7 @@ Users who found Firstleaf through Search and Customer referral tends to have a h
 | `RANDOM_STATE`| Seed for random number generation              | 0                              |
 | `CROSS_VALIDATION_SIZE`| Size of cross validation (K-fold)              | 5                              |
 | `TUNING_SCORE_METRIC`| Metric to score model selection and hyperparameter tuning              | "f1"                              |
+| `RESAMPLING_STRATEGY`| Resampling strategy for training set (RandomOverSampler, SMOTE, ADASYN, RandomUnderSampler, NearMiss, None) | "SMOTE"                              |
 
 ## Project Structure
 ```bash
