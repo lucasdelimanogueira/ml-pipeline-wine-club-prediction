@@ -21,7 +21,7 @@ python3 main.py --tuning_train_size 0.01 --models random_forest svm xgboost --pa
 |--------------------------|-----------------------------------------------|----------------------------------------|------------------------------------------|
 | New features creation   | GridSearch with cross-validation (find best model-hyperparameters) | Use all training set to train the best model | Evaluate the trained model on test set |
 | Train-test splitting    |                                               |                                        |                                          |
-| Label encoding          | (K-fold)             |                                        |                                          |
+| Label encoding          |              |                                        |                                          |
 | Normalization           |                                               |                                        |                                          |
 | Resampling              |                                               |                                        |                                          |
 | Missing values treatment|                                               |                                        |                                          |
