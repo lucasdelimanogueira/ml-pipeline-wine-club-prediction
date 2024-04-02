@@ -53,6 +53,8 @@ Users who found Firstleaf through Search and Customer referral tends to have a h
 |---------------|------------------------------------------------|--------------------------------|
 | `DATASET_PATH`| Path to the dataset file                       | "data/available_intro_user_data.csv" |
 | `RANDOM_STATE`| Seed for random number generation              | 0                              |
+| `CROSS_VALIDATION_SIZE`| Size of cross validation (K-fold)              | 5                              |
+| `TUNING_SCORE_METRIC`| Metric to score model selection and hyperparameter tuning              | "f1"                              |
 
 ## Project Structure
 ```bash

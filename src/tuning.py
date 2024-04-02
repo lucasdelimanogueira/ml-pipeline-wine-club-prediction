@@ -42,8 +42,8 @@ class Tuner:
         grid_search = GridSearchCV(
             self.models[model_type].model,
             self.param_grids[model_type][model_type],
-            cv=5,
-            scoring='f1',
+            cv=Settings.get('CROSS_VALIDATION_SIZE'),
+            scoring=Settings.get('TUNING_SCORE_METRIC'),
             verbose=True
         )
         grid_search.fit(X_train, y_train)
@@ -66,6 +66,6 @@ class Tuner:
 
         logging.info(f"Best model: {best_model_type}")
         logging.info(f"Best parameters: {best_params}")
-        logging.info(f"Best F1: {best_score}")
+        logging.info(f"Best score ({Settings.get('TUNING_SCORE_METRIC')}): {best_score}")
 
         return best_model_type, best_params
