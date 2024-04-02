@@ -17,14 +17,14 @@ python3 main.py --tuning_train_size 0.01 --models random_forest svm xgboost --pa
 |                           | - For SVM: `{'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}`                                                                                              |
 |                           | - For XGBoost: `{'n_estimators': [50, 100, 200], 'max_depth': [3, 5, 7]}`                                                                                  |
 ## Pipeline operations
-| Preprocessing      | Tuning      | Training      | Evaluation  |
-|---------------|----------------------------------|-------------|
-| New features creation | GridSearch with cross-validation (find best model-hyperparameters) | Use all training set to train the best model | Evaluate the trained model on test set |
-| Train-test splitting | | | |
-| Label encoding | Size of cross validation (K-fold) | | |
-| Normalization |  |   |   |
-| Resampling | | | |
-| Missing values treatment | | | |
+| Preprocessing            | Tuning                                        | Training                               | Evaluation                               |
+|--------------------------|-----------------------------------------------|----------------------------------------|------------------------------------------|
+| New features creation   | GridSearch with cross-validation (find best model-hyperparameters) | Use all training set to train the best model | Evaluate the trained model on test set |
+| Train-test splitting    |                                               |                                        |                                          |
+| Label encoding          | Size of cross validation (K-fold)             |                                        |                                          |
+| Normalization           |                                               |                                        |                                          |
+| Resampling              |                                               |                                        |                                          |
+| Missing values treatment|                                               |                                        |                                          |
 
 ## Exploratory Data Analysis
 
