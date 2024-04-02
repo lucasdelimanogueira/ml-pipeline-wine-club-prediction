@@ -1,44 +1,44 @@
-04/02/2024 - 12:30:19 - INFO - # Parsed arguments:
-04/02/2024 - 12:30:19 - INFO - models: ['random_forest', 'svm', 'xgboost']
-04/02/2024 - 12:30:19 - INFO - param_grids: ["{'random_forest': {'n_estimators': [10, 50, 100], 'max_depth': [5, 10, 15]}}", "{'svm': {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}}", "{'xgboost': {'n_estimators': [50, 100, 200], 'max_depth': [3, 5, 7]}}"]
-04/02/2024 - 12:30:19 - INFO - tuning_train_size: 0.01
-04/02/2024 - 12:30:20 - INFO - # Feature Engineering
-04/02/2024 - 12:30:20 - INFO - Converting dates of intro completed
-04/02/2024 - 12:30:20 - INFO - Converting dates of intro delivery
-04/02/2024 - 12:30:23 - INFO - Creating feature days_to_delivery
-04/02/2024 - 12:30:24 - INFO - Removing unnecessary fields
-04/02/2024 - 12:30:24 - INFO - # Data Splitting
-04/02/2024 - 12:30:24 - INFO - Training set size: 419895 samples
-04/02/2024 - 12:30:24 - INFO - Test set size: 46655 samples
-04/02/2024 - 12:30:24 - INFO - # Data Preprocessing
-04/02/2024 - 12:30:24 - INFO - Encoding labels
-04/02/2024 - 12:30:24 - INFO - Encoding labels
-04/02/2024 - 12:30:24 - INFO - Normalizing data
-04/02/2024 - 12:30:24 - INFO - Preprocessing normalization: Mean: [40.6658593  40.6658593   7.49906286  5.37342171  0.54956942  2.88004642
+04/02/2024 - 12:45:34 - INFO - # Parsed arguments:
+04/02/2024 - 12:45:34 - INFO - models: ['random_forest', 'svm', 'xgboost']
+04/02/2024 - 12:45:34 - INFO - param_grids: ["{'random_forest': {'n_estimators': [10, 50, 100], 'max_depth': [5, 10, 15]}}", "{'svm': {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}}", "{'xgboost': {'n_estimators': [50, 100, 200], 'max_depth': [3, 5, 7]}}"]
+04/02/2024 - 12:45:34 - INFO - tuning_train_size: 0.01
+04/02/2024 - 12:45:35 - INFO - # Feature Engineering
+04/02/2024 - 12:45:35 - INFO - Converting dates of intro completed
+04/02/2024 - 12:45:35 - INFO - Converting dates of intro delivery
+04/02/2024 - 12:45:38 - INFO - Creating feature days_to_delivery
+04/02/2024 - 12:45:39 - INFO - Removing unnecessary fields
+04/02/2024 - 12:45:39 - INFO - # Data Splitting
+04/02/2024 - 12:45:39 - INFO - Training set size: 419895 samples
+04/02/2024 - 12:45:39 - INFO - Test set size: 46655 samples
+04/02/2024 - 12:45:39 - INFO - # Data Preprocessing
+04/02/2024 - 12:45:39 - INFO - Encoding labels
+04/02/2024 - 12:45:39 - INFO - Encoding labels
+04/02/2024 - 12:45:39 - INFO - Normalizing data
+04/02/2024 - 12:45:39 - INFO - Preprocessing normalization: Mean: [40.6658593  40.6658593   7.49906286  5.37342171  0.54956942  2.88004642
  44.09547513 43.95934491 40.69499506] Std: [19.54202212 19.54202212  2.59752897  1.67609177  2.70773906  1.76914017
  20.08633692 19.98573843 18.9687527 ]
-04/02/2024 - 12:30:24 - INFO - Converting NaN values
-04/02/2024 - 12:30:24 - INFO - Converting NaN values
-04/02/2024 - 12:30:24 - INFO - Resampling to balance classes
-04/02/2024 - 12:30:24 - INFO - Resampling strategy: None
-04/02/2024 - 12:30:24 - INFO - Resampling was not applied (not found)
-04/02/2024 - 12:30:24 - INFO - # Initializing model - random_forest
-04/02/2024 - 12:30:24 - INFO - # Initializing model - svm
-04/02/2024 - 12:30:24 - INFO - # Initializing model - xgboost
-04/02/2024 - 12:30:24 - INFO - Using 4198 / 419895 samples for hyperparameter tuning
-04/02/2024 - 12:30:24 - INFO - Training random_forest model {'n_estimators': [10, 50, 100], 'max_depth': [5, 10, 15]}
-04/02/2024 - 12:30:30 - INFO - Training svm model {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}
-04/02/2024 - 12:30:34 - INFO - Training xgboost model {'n_estimators': [50, 100, 200], 'max_depth': [3, 5, 7]}
-04/02/2024 - 12:30:36 - INFO - Best model: svm
-04/02/2024 - 12:30:36 - INFO - Best parameters: {'C': 10, 'kernel': 'linear'}
-04/02/2024 - 12:30:36 - INFO - Best score (f1): 0.9418401335854373
-04/02/2024 - 12:30:36 - INFO - # Initializing model - svm
-04/02/2024 - 12:30:36 - INFO - Training best model:svm {'C': 10, 'kernel': 'linear'}
-04/02/2024 - 12:30:37 - INFO - Saving model at models/last_trained_model.joblib
-04/02/2024 - 12:30:37 - INFO - Results: {
+04/02/2024 - 12:45:39 - INFO - Converting NaN values
+04/02/2024 - 12:45:39 - INFO - Converting NaN values
+04/02/2024 - 12:45:39 - INFO - Resampling to balance classes
+04/02/2024 - 12:45:39 - INFO - Resampling strategy: None
+04/02/2024 - 12:45:39 - INFO - Resampling was not applied (not found)
+04/02/2024 - 12:45:39 - INFO - # Initializing model - random_forest
+04/02/2024 - 12:45:39 - INFO - # Initializing model - svm
+04/02/2024 - 12:45:39 - INFO - # Initializing model - xgboost
+04/02/2024 - 12:45:39 - INFO - Using 4198 / 419895 samples for hyperparameter tuning
+04/02/2024 - 12:45:39 - INFO - Training random_forest model {'n_estimators': [10, 50, 100], 'max_depth': [5, 10, 15]}
+04/02/2024 - 12:45:45 - INFO - Training svm model {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}
+04/02/2024 - 12:45:50 - INFO - Training xgboost model {'n_estimators': [50, 100, 200], 'max_depth': [3, 5, 7]}
+04/02/2024 - 12:45:53 - INFO - Best model: svm
+04/02/2024 - 12:45:53 - INFO - Best parameters: {'C': 10, 'kernel': 'linear'}
+04/02/2024 - 12:45:53 - INFO - Best score (f1): 0.9418401335854373
+04/02/2024 - 12:45:53 - INFO - # Initializing model - svm
+04/02/2024 - 12:45:53 - INFO - Training best model:svm {'C': 10, 'kernel': 'linear'}
+04/02/2024 - 12:45:53 - INFO - Saving model at models/last_trained_model.joblib
+04/02/2024 - 12:45:53 - INFO - Results: {
     "accuracy": 0.9882756403386561,
     "precision": 0.9549444119368051,
     "recall": 0.8925348646431501,
     "f1_score": 0.9226855123674912,
-    "inference_time": 9.406125247829814e-07
+    "inference_time": 1.4320087770137638e-06
 }
